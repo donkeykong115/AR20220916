@@ -1,0 +1,34 @@
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Location-based AR.js demo</title>
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    </head>
+
+    <a-assets>
+      <a-asset-item id="obj" src="./ARS君green.obj"></a-asset-item>   <!-- objファイル -->
+      <a-asset-item id="mtl" src="./ARS君green.mtl"></a-asset-item>   <!-- mtlファイル -->
+    </a-assets>
+  
+    <body style="margin: 0; overflow: hidden;">
+      <a-scene
+        vr-mode-ui="enabled: false"
+        embedded
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+      >
+      <a-obj-model id="box"
+      src="#obj"
+      mtl="#mtl"
+      gps-entity-place="latitude: 36.14436693859574 ; longitude: 139.3823770597512 ;" 
+      scale="0.01 0.01 0.01"
+      look-at="[gps-camera]"
+      position="-3 0 -0.5">
+      </a-obj-model>
+        <a-camera gps-camera="minDistance:100; maxDistance:100" rotation-reader> </a-camera>
+      </a-scene>
+    </body>
+  </html>
